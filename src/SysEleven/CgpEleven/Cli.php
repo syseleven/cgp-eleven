@@ -22,12 +22,6 @@ use SysEleven\CgpEleven\Serializer\SerializerInterface;
  */ 
 class Cli implements CliInterface
 {
-
-    /**
-     * @var \SysEleven\CgpEleven\Serializer\SerializerInterface $_serializer
-     */
-    protected $_serializer;
-
     /**
      * @var \SysEleven\CgpEleven\Adapter\AdapterAbstract $adapter
      */
@@ -38,12 +32,10 @@ class Cli implements CliInterface
      * Initializes the object.
      *
      * @param AdapterAbstract     $adapter
-     * @param SerializerInterface $serializer
      */
-    public function __construct(AdapterAbstract $adapter = null, SerializerInterface $serializer = null)
+    public function __construct(AdapterAbstract $adapter = null)
     {
         $this->_adapter = $adapter;
-        $this->_serializer = $serializer;
     }
 
     /**
@@ -85,7 +77,7 @@ class Cli implements CliInterface
      */
     public function setSerializer(SerializerInterface $serializer)
     {
-        $this->_serializer = $serializer;
+        $this->getAdapter()->setSerializer($serializer);
 
         return $this;
     }
@@ -98,11 +90,7 @@ class Cli implements CliInterface
      */
     public function getSerializer()
     {
-        if (!($this->_serializer instanceof SerializerInterface)) {
-            throw new \RuntimeException('Serializer is not set');
-        }
-
-        return $this->_serializer;
+        return $this->getAdapter()->getSerializer();
     }
 
     /**
