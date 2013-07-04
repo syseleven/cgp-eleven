@@ -20,6 +20,5 @@
         "phpunit/phpunit": "3.7.*",
         "mockery/mockery": "dev-master"
     },
-    "target-dir": "SysEleven/CgpEleven",
     "minimum-stability": "alpha"
 }
