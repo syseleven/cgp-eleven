@@ -6,7 +6,7 @@
  * Time: 21:59
  * To change this template use File | Settings | File Templates.
  */
-namespace Communigate;
+namespace SysEleven\CgpEleven;
 
 use SysEleven\CgpEleven\Adapter\AdapterAbstract;
 use SysEleven\CgpEleven\Serializer\SerializerInterface;
