@@ -92,7 +92,10 @@ abstract class AdapterAbstract
                                $logger = null)
     {
         $this->setOptions($connection);
-        $this->setSerializer($serializer);
+        if ($serializer instanceof SerializerInterface) {
+            $this->setSerializer($serializer);
+        }
+
         $this->setLogger($logger);
     }
 
